@@ -1,47 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/change_name_mycard.dart';
-import 'package:hello_world/drawer.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController _nameController = TextEditingController();
-  var myText = "Change me";
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class HomePage extends StatelessWidget {
+  // Whenever be your UI app created must be created through build method
   @override
   Widget build(BuildContext context) {
+    // it will return Scaffold is material design Widget // this is roof  // or a structure of design
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      // Appbar is header
       appBar: AppBar(
-        title: Text("Hello World"),
+        // title is property of app bar it have some own Widget like text
+        title: Text("My first app"),
+        // centerTitle is property of app bar that used for title text alignment
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Card(
-            child: change_name_mycard(myText: myText, nameController: _nameController),
-          ),
-        ),
-      ),
-      drawer: MyDrawer(),
+      body: Center(
+          child: Text("Hello World ",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ))),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          myText = _nameController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.refresh),
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+      drawer: Drawer(
+        child: ListView(padding: EdgeInsets.all(0), children: <Widget>[
+          UserAccountsDrawerHeader(
+            accountEmail: Text("waseemvirk00@gmail.com"),
+            accountName: Text("Waceem Virk"),
+            currentAccountPicture: CircleAvatar(
+              child: Text("W"),
+            ),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.all_inbox),
+            title: Text("Music"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.movie),
+            title: Text("Movies"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.shopping_cart),
+            title: Text("Shopping"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.apps),
+            title: Text("Apps"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.dashboard),
+            title: Text("Docs"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.settings),
+            title: Text("Settings"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.info),
+            title: Text("About"),
+          ),
+          ListTile(
+            onTap: () {},
+            leading: Icon(Icons.power_settings_new),
+            title: Text("Logout"),
+          ),
+        ]),
       ),
     );
   }
 }
+
