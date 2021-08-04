@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/change_name_mycard.dart';
-import 'package:hello_world/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,22 +24,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("Hello World"),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Card(
-            child: change_name_mycard(myText: myText, nameController: _nameController),
-          ),
-        ),
-      ),
-      drawer: MyDrawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          myText = _nameController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.refresh),
-      ),
+      body: Center(),
     );
   }
 }
