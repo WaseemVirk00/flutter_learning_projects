@@ -1,47 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/change_name_mycard.dart';
-import 'package:hello_world/drawer.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  TextEditingController _nameController = TextEditingController();
-  var myText = "Change me";
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Hello World"),
+        title: Text("Awesome App"),
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Card(
-            child: change_name_mycard(myText: myText, nameController: _nameController),
+        padding: const EdgeInsets.all(8.0),
+        child: Align(
+          alignment: Alignment.center,
+          child: Container(
+            color: Colors.black,
+            width: 200,
+            height: 400,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    width: 100,
+                    height: 100,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    width: 100,
+                    height: 100,
+                    color: Colors.yellow,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
-      ),
-      drawer: MyDrawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          myText = _nameController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.refresh),
       ),
     );
   }
 }
+
