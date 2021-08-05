@@ -6,7 +6,7 @@ void main() {
   runApp(MaterialApp(
     title: "Awesome App",
     home: HomePage(),
-    theme: ThemeData(primarySwatch: Colors.purple),
+    theme: ThemeData(primarySwatch: Colors.blue),
     debugShowCheckedModeBanner: false,
   ));
 }
