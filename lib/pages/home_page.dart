@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-=======
+
 import 'package:hello_world/pages/login_page.dart';
 import 'package:hello_world/pages/my_drawer.dart';
 import 'package:hello_world/utils/Constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
->>>>>>> Stashed changes
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,15 +14,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-<<<<<<< Updated upstream
-  
-=======
+
   TextEditingController _nameController = TextEditingController();
   var myText = "Change me";
   var url = "https://jsonplaceholder.typicode.com/photos";
   var data;
 
->>>>>>> Stashed changes
+
   @override
   void initState() {
     super.initState();
@@ -42,54 +38,66 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
+        backgroundColor: Colors.grey[200],
+        appBar: AppBar(
         title: Text("Hello World"),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Constants.preferences.setBool("loggedIn", false);
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => login_page()));
-              },
-              icon: Icon(Icons.exit_to_app_sharp))
-        ],
-        centerTitle: true,
-      ),
-<<<<<<< Updated upstream
-      body: Center(),
+    actions: [
+    IconButton(
+    onPressed: () {
+    Constants.preferences.setBool("loggedIn", false);
+    Navigator.pushReplacement(context,
+    MaterialPageRoute(builder: (context) => login_page()));
+    },
+    icon: Icon(Icons.exit_to_app_sharp))
+    ],
+    centerTitle: true,
+    ),
+    body: Center(
+    child: Padding
+    (
+    padding: const EdgeInsets.all(16.0
+    )
+    ,
+    child: data != null
+    ?
+    ListView.builder(itemBuilder: (
+    context, index) {
+    return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ListTile(
+    title: Text(data[index]["title"]),
+    subtitle: Text("ID: ${data[index]["id"]}"),
+    leading: Image.network(data[index]["url"]),
+    ),
+    );
+    },
+    itemCount: data.length):
+    Center
+    (
+    child: CircularProgressIndicator
+    (
+    ),)
+    ,
+    )
+    ,
+    drawer: my_drawer
+    (
+    ),floatingActionButton: FloatingActionButton
+    (
+    onPressed: () {
+    myText = _nameController.text;
+    setState(() {});
+    },
+    child: Icon
+    (
+    Icons.refresh),
+    )
+    ,
     );
   }
 }
-=======
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: data != null
-            ? ListView.builder(
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      title: Text(data[index]["title"]),
-                      subtitle: Text("ID: ${data[index]["id"]}"),
-                      leading: Image.network(data[index]["url"]),
-                    ),
-                  );
-                },
-                itemCount: data.length)
-            : Center(
-                child: CircularProgressIndicator(),
-              ),
-      ),
-      drawer: my_drawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          myText = _nameController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.refresh),
-      ),
-    );
-  }
+
+),
+);
 }
->>>>>>> Stashed changes
+}
