@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  
-  @override
-  void initState() {
-    super.initState();
-  }
+class HomePage extends StatelessWidget {
+  final int days = 30;
+  final String name = "Codepur";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Hello World"),
+        title: Text("Catalog App"),
         centerTitle: true,
       ),
-      body: Center(),
+      body: Center(
+        child: Text("Welcome to $days of flutter by $name"),
+      ),
+      drawer: Drawer(),
     );
   }
 }
