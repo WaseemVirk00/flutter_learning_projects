@@ -4,6 +4,7 @@ import 'package:hello_world/pages/home_page.dart';
 import 'package:hello_world/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hello_world/utils/routes.dart';
+import 'package:hello_world/widgets/theme.dart';
 
 void main() {
   runApp(Myapp());
@@ -15,12 +16,9 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
-        theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
-            fontFamily: GoogleFonts.lato().fontFamily),
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-        ),
+        theme:MyTheme.lightTheme(context),
+        darkTheme:MyTheme.darkTheme(context),
+        initialRoute: MyRoutes.homeRoute,
         routes: {
           "/": (context) => LoginPage(),
           MyRoutes.homeRoute: (context) => HomePage(),
